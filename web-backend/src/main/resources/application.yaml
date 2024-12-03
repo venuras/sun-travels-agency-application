@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: web-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sun_travels_db
+    username: postgres
+    password: venura2501
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
