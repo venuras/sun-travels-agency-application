@@ -1,7 +1,6 @@
 package com.sun_travels.web_backend.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
@@ -18,6 +17,4 @@ public class ContractRoom {
     private int roomCount;
     private int maxAdultCount;
 
-    @ManyToOne
-    private Contract contract;
 }
