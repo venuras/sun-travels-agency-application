@@ -1,6 +1,5 @@
 package com.sun_travels.web_backend.dto;
 
-import com.sun_travels.web_backend.model.ContractRoom;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -29,5 +28,5 @@ public class ContractDto {
     private LocalDate contractValidTill;
 
     @NotEmpty(message = "Contract must have at least one type of room")
-    private List<ContractRoom> contractRooms;
+    private List<ContractRoomDto> contractRooms;
 }
