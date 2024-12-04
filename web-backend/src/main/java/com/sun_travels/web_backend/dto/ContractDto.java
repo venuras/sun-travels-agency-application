@@ -19,6 +19,7 @@ public class ContractDto {
     private Long id;
 
     @NotBlank(message = "Hotel name cannot be blank")
+    @NotNull(message = "Hotel name cannot be null")
     private String hotelName;
 
     @NotNull(message = "Contract valid start date cannot be null")
@@ -27,6 +28,7 @@ public class ContractDto {
     @NotNull(message = "Contract valid end date cannot be null")
     private LocalDate contractValidTill;
 
+    @NotNull(message = "Room List cannot be null")
     @NotEmpty(message = "Contract must have at least one type of room")
     private List<ContractRoomDto> contractRooms;
 }
