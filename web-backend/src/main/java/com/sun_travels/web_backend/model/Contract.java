@@ -1,13 +1,11 @@
 package com.sun_travels.web_backend.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,6 +27,7 @@ public class Contract {
     @Column(nullable = false)
     private LocalDate contractValidTill;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "contract_id", referencedColumnName = "id")
     private List<ContractRoom> contractRooms;
 }
