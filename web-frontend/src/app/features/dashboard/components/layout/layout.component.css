@@ -1,0 +1,10 @@
+.feature-dashbard-layout{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+}
+
+.feature-dashbard-layout-content-holder{
+    display: flex;
+    flex-direction: column;
+}
