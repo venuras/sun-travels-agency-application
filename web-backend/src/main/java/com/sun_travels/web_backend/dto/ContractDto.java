@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Valid
 public class ContractDto {
-    private Long id;
+    private Long contractId;
 
     @NotBlank(message = "Hotel name cannot be blank")
     @NotNull(message = "Hotel name cannot be null")
@@ -30,5 +30,5 @@ public class ContractDto {
 
     @NotNull(message = "Room List cannot be null")
     @NotEmpty(message = "Contract must have at least one type of room")
-    private List<ContractRoomDto> contractRooms;
+    private List<ContractDetailDto> contractDetails;
 }

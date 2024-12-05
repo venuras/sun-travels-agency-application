@@ -16,7 +16,7 @@ public class Contract {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long contractId;
 
     @Column(nullable = false)
     private String hotelName;
@@ -28,6 +28,6 @@ public class Contract {
     private LocalDate contractValidTill;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "contract_id", referencedColumnName = "id")
-    private List<ContractRoom> contractRooms;
+    @JoinColumn(name = "contract_id", referencedColumnName = "contractId")
+    private List<ContractDetail> contractDetails;
 }

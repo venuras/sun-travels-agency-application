@@ -68,7 +68,7 @@ class ContractControllerUnitTests {
                         .content(objectMapper.writeValueAsString(contractDto)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.hotelName").value("Hotel Sunshine"))
-                .andExpect(jsonPath("$.id").value(1));
+                .andExpect(jsonPath("$.contractId").value(1));
 
         verify(contractService, times(1)).addContract(any(ContractDto.class));
     }

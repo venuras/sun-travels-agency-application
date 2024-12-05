@@ -1,4 +1,4 @@
-package com.sun_travels.web_backend;
+package com.sun_travels.web_backend.config;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Testcontainers
 @ContextConfiguration
 @ActiveProfiles(value = "test")
-class TestContainersConfiguration {
+public class TestContainersConfiguration {
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             "postgres:16-alpine"
     );

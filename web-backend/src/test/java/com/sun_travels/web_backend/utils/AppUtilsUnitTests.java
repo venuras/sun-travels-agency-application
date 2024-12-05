@@ -1,8 +1,8 @@
 package com.sun_travels.web_backend.utils;
 import com.sun_travels.web_backend.dto.ContractDto;
-import com.sun_travels.web_backend.dto.ContractRoomDto;
+import com.sun_travels.web_backend.dto.ContractDetailDto;
 import com.sun_travels.web_backend.model.Contract;
-import com.sun_travels.web_backend.model.ContractRoom;
+import com.sun_travels.web_backend.model.ContractDetail;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -15,89 +15,89 @@ class AppUtilsUnitTests {
     @Test
     void testDtoToEntityForContract() {
         ContractDto contractDto = new ContractDto();
-        contractDto.setId(1L);
+        contractDto.setContractId(1L);
         contractDto.setHotelName("Hotel Sunshine");
         contractDto.setContractValidFrom(LocalDate.of(2023, 1, 1));
         contractDto.setContractValidTill(LocalDate.of(2023, 12, 31));
-        ContractRoomDto roomDto = new ContractRoomDto();
-        roomDto.setId(101L);
-        roomDto.setRoomCount(2);
-        roomDto.setRoomType("Deluxe");
-        roomDto.setRoomPrice(150.0);
-        roomDto.setMaxAdultCount(2);
-        contractDto.setContractRooms(List.of(roomDto));
+        ContractDetailDto contractDetailDto = new ContractDetailDto();
+        contractDetailDto.setId(101L);
+        contractDetailDto.setRoomCount(2);
+        contractDetailDto.setRoomType("Deluxe");
+        contractDetailDto.setRoomPrice(150.0);
+        contractDetailDto.setMaxAdultCount(2);
+        contractDto.setContractDetails(List.of(contractDetailDto));
 
         Contract contract = AppUtils.ContractMapper.dtoToEntity(contractDto);
 
         assertNotNull(contract);
-        assertEquals(contractDto.getId(), contract.getId());
+        assertEquals(contractDto.getContractId(), contract.getContractId());
         assertEquals(contractDto.getHotelName(), contract.getHotelName());
         assertEquals(contractDto.getContractValidFrom(), contract.getContractValidFrom());
         assertEquals(contractDto.getContractValidTill(), contract.getContractValidTill());
-        assertEquals(contractDto.getContractRooms().size(), contract.getContractRooms().size());
+        assertEquals(contractDto.getContractDetails().size(), contract.getContractDetails().size());
     }
 
     @Test
     void testEntityToDtoForContract() {
         Contract contract = new Contract();
-        contract.setId(1L);
+        contract.setContractId(1L);
         contract.setHotelName("Hotel Sunshine");
         contract.setContractValidFrom(LocalDate.of(2023, 1, 1));
         contract.setContractValidTill(LocalDate.of(2023, 12, 31));
-        ContractRoom room = new ContractRoom();
-        room.setId(101L);
-        room.setRoomCount(2);
-        room.setRoomType("Deluxe");
-        room.setRoomPrice(150.0);
-        room.setMaxAdultCount(2);
-        contract.setContractRooms(List.of(room));
+        ContractDetail contractDetail = new ContractDetail();
+        contractDetail.setContractDetailId(101L);
+        contractDetail.setRoomCount(2);
+        contractDetail.setRoomType("Deluxe");
+        contractDetail.setRoomPrice(150.0);
+        contractDetail.setMaxAdultCount(2);
+        contract.setContractDetails(List.of(contractDetail));
 
         ContractDto contractDto = AppUtils.ContractMapper.entityToDto(contract);
 
         assertNotNull(contractDto);
-        assertEquals(contract.getId(), contractDto.getId());
+        assertEquals(contract.getContractId(), contractDto.getContractId());
         assertEquals(contract.getHotelName(), contractDto.getHotelName());
         assertEquals(contract.getContractValidFrom(), contractDto.getContractValidFrom());
         assertEquals(contract.getContractValidTill(), contractDto.getContractValidTill());
-        assertEquals(contract.getContractRooms().size(), contractDto.getContractRooms().size());
+        assertEquals(contract.getContractDetails().size(), contractDto.getContractDetails().size());
     }
 
     @Test
     void testDtoToEntityForContractRoom() {
-        ContractRoomDto roomDto = new ContractRoomDto();
-        roomDto.setId(101L);
-        roomDto.setRoomCount(2);
-        roomDto.setRoomType("Deluxe");
-        roomDto.setRoomPrice(150.0);
-        roomDto.setMaxAdultCount(2);
+        ContractDetailDto contractDetailDto = new ContractDetailDto();
+        contractDetailDto.setId(101L);
+        contractDetailDto.setRoomCount(2);
+        contractDetailDto.setRoomType("Deluxe");
+        contractDetailDto.setRoomPrice(150.0);
+        contractDetailDto.setMaxAdultCount(2);
 
-        ContractRoom contractRoom = AppUtils.ContractRoomMapper.dtoToEntity(roomDto);
+        ContractDetail contractDetail = AppUtils.ContractDetailMapper.dtoToEntity(contractDetailDto);
 
-        assertNotNull(contractRoom);
-        assertEquals(roomDto.getId(), contractRoom.getId());
-        assertEquals(roomDto.getRoomCount(), contractRoom.getRoomCount());
-        assertEquals(roomDto.getRoomType(), contractRoom.getRoomType());
-        assertEquals(roomDto.getRoomPrice(), contractRoom.getRoomPrice());
-        assertEquals(roomDto.getMaxAdultCount(), contractRoom.getMaxAdultCount());
+        assertNotNull(contractDetail);
+        assertEquals(contractDetailDto.getId(), contractDetail.getContractDetailId());
+        assertEquals(contractDetailDto.getRoomCount(), contractDetail.getRoomCount());
+        assertEquals(contractDetailDto.getRoomType(), contractDetail.getRoomType());
+        assertEquals(contractDetailDto.getRoomPrice(), contractDetail.getRoomPrice());
+        assertEquals(contractDetailDto.getMaxAdultCount(), contractDetail.getMaxAdultCount());
     }
 
     @Test
     void testEntityToDtoForContractRoom() {
-        ContractRoom contractRoom = new ContractRoom();
-        contractRoom.setId(101L);
-        contractRoom.setRoomCount(2);
-        contractRoom.setRoomType("Deluxe");
-        contractRoom.setRoomPrice(150.0);
-        contractRoom.setMaxAdultCount(2);
+        ContractDetail contractDetail = new ContractDetail();
+        contractDetail.setContractDetailId(101L);
+        contractDetail.setRoomCount(2);
+        contractDetail.setRoomType("Deluxe");
+        contractDetail.setRoomPrice(150.0);
+        contractDetail.setMaxAdultCount(2);
 
-        ContractRoomDto roomDto = AppUtils.ContractRoomMapper.entityToDto(contractRoom);
+        ContractDetailDto contractDetailDto = AppUtils.ContractDetailMapper.entityToDto(contractDetail);
 
-        assertNotNull(roomDto);
-        assertEquals(contractRoom.getId(), roomDto.getId());
-        assertEquals(contractRoom.getRoomCount(), roomDto.getRoomCount());
-        assertEquals(contractRoom.getRoomType(), roomDto.getRoomType());
-        assertEquals(contractRoom.getRoomPrice(), roomDto.getRoomPrice());
-        assertEquals(contractRoom.getMaxAdultCount(), roomDto.getMaxAdultCount());
+        assertNotNull(contractDetailDto);
+        assertEquals(contractDetail.getContractDetailId(), contractDetailDto.getId());
+        assertEquals(contractDetail.getRoomCount(), contractDetailDto.getRoomCount());
+        assertEquals(contractDetail.getRoomType(), contractDetailDto.getRoomType());
+        assertEquals(contractDetail.getRoomPrice(), contractDetailDto.getRoomPrice());
+        assertEquals(contractDetail.getMaxAdultCount(), contractDetailDto.getMaxAdultCount());
     }
 
     @Test

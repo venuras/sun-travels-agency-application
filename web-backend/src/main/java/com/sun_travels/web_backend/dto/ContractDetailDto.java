@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Valid
-public class ContractRoomDto {
+public class ContractDetailDto {
     private Long id;
 
     @NotBlank

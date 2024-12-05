@@ -5,11 +5,11 @@ import lombok.Data;
 
 @Entity
 @Data
-public class ContractRoom {
+public class ContractDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long contractDetailId;
 
     @Column(nullable = false)
     private String roomType;

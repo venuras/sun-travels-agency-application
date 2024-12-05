@@ -1,10 +1,11 @@
 package com.sun_travels.web_backend;
 
+import com.sun_travels.web_backend.config.TestContainersConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebBackendApplicationTests extends TestContainersConfiguration{
+class WebBackendApplicationTests extends TestContainersConfiguration {
 
 	@Test
 	void contextLoads() {

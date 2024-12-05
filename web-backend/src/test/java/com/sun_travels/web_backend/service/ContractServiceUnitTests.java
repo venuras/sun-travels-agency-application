@@ -53,7 +53,7 @@ class ContractServiceUnitTests {
         // Arrange
         Long contractId = 1L;
         Contract contract = new Contract();
-        contract.setId(contractId);
+        contract.setContractId(contractId);
         when(contractRepository.findById(contractId)).thenReturn(Optional.of(contract));
 
         // Act
@@ -81,18 +81,18 @@ class ContractServiceUnitTests {
     void testGetAllContracts() {
         // Arrange
         Contract contract1 = new Contract();
-        contract1.setId(1L);
+        contract1.setContractId(1L);
         contract1.setHotelName("Hotel Sunshine");
         contract1.setContractValidFrom(LocalDate.of(2023, 1, 1));
         contract1.setContractValidTill(LocalDate.of(2023, 12, 31));
-        contract1.setContractRooms(new ArrayList<>());
+        contract1.setContractDetails(new ArrayList<>());
 
         Contract contract2 = new Contract();
-        contract2.setId(2L);
+        contract2.setContractId(2L);
         contract2.setHotelName("Hotel Paradise");
         contract2.setContractValidFrom(LocalDate.of(2024, 1, 1));
         contract2.setContractValidTill(LocalDate.of(2024, 12, 31));
-        contract2.setContractRooms(new ArrayList<>());
+        contract2.setContractDetails(new ArrayList<>());
 
         when(contractRepository.findAll()).thenReturn(List.of(contract1, contract2));
 
