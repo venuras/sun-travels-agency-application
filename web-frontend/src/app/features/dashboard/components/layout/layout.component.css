@@ -1,10 +1,18 @@
-.feature-dashbard-layout{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
-}
-
-.feature-dashbard-layout-content-holder{
+.feature-dashboard-layout{
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+
+.feature-dashboard-grid-layout{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+.feature-dashboard-layout-content-holder{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px 0 20px;
 }
