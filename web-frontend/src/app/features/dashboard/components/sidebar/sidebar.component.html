@@ -1,3 +1,19 @@
-<div>
-    Sidebar
+<div class="feature-sidebar-main-container">
+    <div routerLink="dashboard/search" class="sidebar-btn feature-sidebar-search-hotels-btn"
+        [class.selected]="selectedButton === 'searchHotels'" (click)="handleClick('searchHotels')">
+        <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="#e8eaed">
+            <path
+                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+        </svg>
+        <p>Search Hotels</p>
+    </div>
+
+    <div routerLink="dashboard/contracts" class="sidebar-btn feature-sidebar-mng-contracts-btn"
+        [class.selected]="selectedButton === 'manageContracts'" (click)="handleClick('manageContracts')">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+                d="M360-600v-80h360v80H360Zm0 120v-80h360v80H360Zm120 320H200h280Zm0 80H240q-50 0-85-35t-35-85v-120h120v-560h600v361q-20-2-40.5 1.5T760-505v-295H320v480h240l-80 80H200v40q0 17 11.5 28.5T240-160h240v80Zm80 0v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T903-300L683-80H560Zm300-263-37-37 37 37ZM620-140h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+        <p>Manage Contracts</p>
+    </div>
 </div>
