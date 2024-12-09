@@ -1,0 +1,19 @@
+.feature-header-main-container{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.feature-header-logo-container{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    left: 0;
+}
+
+.feature-header-main-text{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 20px;
+}
