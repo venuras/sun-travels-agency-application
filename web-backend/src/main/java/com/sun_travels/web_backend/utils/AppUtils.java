@@ -29,6 +29,8 @@ public class AppUtils {
             contract.setContractValidFrom(contractDto.getContractValidFrom());
             contract.setContractValidTill(contractDto.getContractValidTill());
             contract.setContractDetails(contractDto.getContractDetails().stream().map(ContractDetailMapper::dtoToEntity).toList());
+            contract.setCreatedAt(contractDto.getCreatedAt());
+            contract.setMarkup(contractDto.getMarkup());
             return contract;
         }
 
@@ -39,6 +41,8 @@ public class AppUtils {
             dto.setContractValidFrom(contract.getContractValidFrom());
             dto.setContractValidTill(contract.getContractValidTill());
             dto.setContractDetails(contract.getContractDetails().stream().map(ContractDetailMapper::entityToDto).toList());
+            dto.setCreatedAt(contract.getCreatedAt());
+            dto.setMarkup(contract.getMarkup());
             return dto;
         }
     }
