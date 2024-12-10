@@ -1,0 +1,37 @@
+<div class="feature-contract-details-modal-main-cont">
+    <div class="modal-overlay" (click)="closeModal()">
+        <div class="modal-content-container" (click)="$event.stopPropagation()">
+            <div class="modal-header-container">
+                <div></div>
+                <p>Room Details of {{contract.hotelName}}</p>
+                <svg (click)="closeModal()" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                    width="24px" fill="#e8eaed">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg>
+            </div>
+            <div>
+                <div class="room-details-table-header">
+                    @for (header of [
+                    {id: 1, name: '#'},
+                    {id: 2, name: 'Room Type'},
+                    {id: 3, name: 'Price'},
+                    {id: 4, name: 'Available Count'},
+                    {id: 5, name: 'Max. Adult Count'},
+                    ]; track header.id) {
+                    <div class="room-details-table-header-item">{{ header.name }}</div>
+                    }
+                </div>
+                @for (detail of contract.contractDetails; track detail.id) {
+                <div class="room-details-table-row">
+                    <div class="room-details-table-row-item">{{ $index+1 }}</div>
+                    <div class="room-details-table-row-item">{{ detail.roomType }}</div>
+                    <div class="room-details-table-row-item">{{ detail.roomPrice }}</div>
+                    <div class="room-details-table-row-item">{{ detail.roomCount }}</div>
+                    <div class="room-details-table-row-item">{{ detail.maxAdultCount }}</div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
