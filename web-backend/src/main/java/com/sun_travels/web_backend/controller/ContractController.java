@@ -1,6 +1,7 @@
 package com.sun_travels.web_backend.controller;
 
 import com.sun_travels.web_backend.dto.ContractDto;
+import com.sun_travels.web_backend.dto.request_body.DeleteContractRequestBody;
 import com.sun_travels.web_backend.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,9 +35,9 @@ public class ContractController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteContract(@RequestBody Long id)
+    public ResponseEntity<Void> deleteContract(@RequestBody DeleteContractRequestBody reqBody)
     {
-        contractService.deleteContract(id);
+        contractService.deleteContract(reqBody.getContractId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
