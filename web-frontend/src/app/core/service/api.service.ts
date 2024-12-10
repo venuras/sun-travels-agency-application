@@ -14,14 +14,14 @@ export class ApiService {
 
   // Implementing HTTP methods
   protected get<T>(path: string, options: { [param: string]: unknown } = {}): Observable<T> {
-    return this.httpClient.get<T>(`${this.apiUrl}/api/${this.version}/${path}/`, options);
+    return this.httpClient.get<T>(`${this.apiUrl}/api/${this.version}/${path}`, options);
   }
 
   protected post<T>(path: string, body: unknown, options: { [param: string]: unknown } = {}): Observable<T> {
-    return this.httpClient.post<T>(`${this.apiUrl}/api/${this.version}/${path}/`, body, options);
+    return this.httpClient.post<T>(`${this.apiUrl}/api/${this.version}/${path}`, body, options);
   }
 
   protected delete<T>(path: string, body: { [param: string]: unknown } = {}): Observable<T> {
-    return this.httpClient.delete<T>(`${this.apiUrl}/api/${this.version}/${path}/`, { body });
+    return this.httpClient.delete<T>(`${this.apiUrl}/api/${this.version}/${path}`, { body });
   }
 }
