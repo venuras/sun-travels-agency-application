@@ -22,6 +22,6 @@ export class ApiService {
   }
 
   protected delete<T>(path: string, body: { [param: string]: unknown } = {}): Observable<T> {
-    return this.httpClient.delete<T>(`${this.apiUrl}/api/${this.version}/${path}`, { body });
+    return this.httpClient.delete<T>(`${this.apiUrl}/api/${this.version}/${path}`, body );
   }
 }
