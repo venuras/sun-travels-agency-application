@@ -1,6 +1,9 @@
 <div class="feature-contract-view-main-cont">
     <p class="feature-contract-view-head-text">Access your Contracts Here</p>
-    <div class="feature-contract-view-contract-status-dropdown-container">
+
+    <!-- removed drop down for status checking -unimplemented -->
+
+    <!-- <div class="feature-contract-view-contract-status-dropdown-container">
         <p>Change Validity Status</p>
         <div class="feature-contract-view-contract-status-dropdown">
             <button class="feature-contract-view-contract-status-dropbtn">All</button>
@@ -10,6 +13,64 @@
                 <a>Expired</a>
             </div>
         </div>
+    </div> -->
 
+    <div class="feature-contract-view-add-contract-floating-action-btn">
+        <div class="feature-contract-view-add-contract-plus-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffffff">
+                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
+        </div>
+        <p>Add</p>
+        <p>Contract</p>
     </div>
+
+    <div class="feature-contract-view-table-header-container">
+        @for (header of [
+        {id: 1, name: '#'},
+        {id: 2, name: 'Hotel Name'},
+        {id: 3, name: 'Valid From'},
+        {id: 4, name: 'Valid Till'},
+        {id: 5, name: 'Markup'},
+        {id: 6, name: 'Rooms'},
+        {id: 7, name: 'Actions'}
+        ]; track header.id) {
+        <div class="feature-contract-view-table-header-item">{{ header.name }}</div>
+        }
+    </div>
+
+    @for (contract of contracts; track contract.contractId) {
+    <div class="feature-contract-view-table-row-container">
+        <div class="feature-contract-view-table-row-item">{{ $index + 1 }}</div>
+        <!-- Display the incrementing number -->
+        <div class="feature-contract-view-table-row-item">{{ contract.hotelName }}</div>
+        <div class="feature-contract-view-table-row-item">{{ contract.contractValidFrom }}</div>
+        <div class="feature-contract-view-table-row-item">{{ contract.contractValidTill }}</div>
+        <div class="feature-contract-view-table-row-item">{{contract.markup}}</div>
+        <div class="feature-contract-view-table-row-item">
+            <svg (click)="openRoomDetailsModal(contract)" aria-label="View Rooms"
+                class="feature-contract-view-table-row-room-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                <title>View Rooms</title>
+                <path
+                    d="M80-200v-240q0-27 11-49t29-39v-112q0-50 35-85t85-35h160q23 0 43 8.5t37 23.5q17-15 37-23.5t43-8.5h160q50 0 85 35t35 85v112q18 17 29 39t11 49v240h-80v-80H160v80H80Zm440-360h240v-80q0-17-11.5-28.5T720-680H560q-17 0-28.5 11.5T520-640v80Zm-320 0h240v-80q0-17-11.5-28.5T400-680H240q-17 0-28.5 11.5T200-640v80Zm-40 200h640v-80q0-17-11.5-28.5T760-480H200q-17 0-28.5 11.5T160-440v80Zm640 0H160h640Z" />
+            </svg>
+            @if(isModalOpen)
+            {
+            <feature-contract-details-modal [contract]=selectedContract!
+                (close)="closeRoomDetailsModal()"></feature-contract-details-modal>
+            }
+        </div>
+        <div class="feature-contract-view-table-row-item">
+            <div class="feature-contract-view-table-row-delete-action">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#e8eaed">
+                    <path
+                        d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                </svg>
+                Delete
+            </div>
+        </div>
+    </div>
+    }
 </div>
