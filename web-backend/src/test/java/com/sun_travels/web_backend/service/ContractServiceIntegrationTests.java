@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +24,7 @@ class ContractServiceIntegrationTests extends TestContainersConfiguration {
     void testAddContract() {
         // Arrange
         ContractDetailDto roomDto = new ContractDetailDto(null, "Deluxe", 200.0, 5, 2);
-        ContractDto contractDto = new ContractDto(null, "Luxury Inn", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto));
+        ContractDto contractDto = new ContractDto(null, "Luxury Inn", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto), 15.0, LocalDateTime.now());
 
         // Act
         ContractDto savedContract = contractService.addContract(contractDto);
@@ -39,7 +40,7 @@ class ContractServiceIntegrationTests extends TestContainersConfiguration {
     void testDeleteContract() {
         // Arrange
         ContractDetailDto roomDto = new ContractDetailDto(null, "Standard", 150.0, 3, 2);
-        ContractDto contractDto = new ContractDto(null, "Standard Stay", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto));
+        ContractDto contractDto = new ContractDto(null, "Standard Stay", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto), 15.0, LocalDateTime.now());
         ContractDto savedContract = contractService.addContract(contractDto);
 
         // Act & Assert
@@ -53,8 +54,8 @@ class ContractServiceIntegrationTests extends TestContainersConfiguration {
         ContractDetailDto roomDto1 = new ContractDetailDto(null, "Suite", 300.0, 2, 4);
         ContractDetailDto roomDto2 = new ContractDetailDto(null, "Economy", 100.0, 10, 2);
 
-        ContractDto contractDto1 = new ContractDto(null, "Grand Hotel", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto1));
-        ContractDto contractDto2 = new ContractDto(null, "Budget Inn", LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31), List.of(roomDto2));
+        ContractDto contractDto1 = new ContractDto(null, "Grand Hotel", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto1), 15.0, LocalDateTime.now());
+        ContractDto contractDto2 = new ContractDto(null, "Budget Inn", LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31), List.of(roomDto2), 15.0, LocalDateTime.now());
 
         contractService.addContract(contractDto1);
         contractService.addContract(contractDto2);
@@ -74,7 +75,7 @@ class ContractServiceIntegrationTests extends TestContainersConfiguration {
         ContractDetailDto roomDto1 = new ContractDetailDto(null, "Suite", 350.0, 2, 3);
         ContractDetailDto roomDto2 = new ContractDetailDto(null, "Deluxe", 250.0, 5, 2);
 
-        ContractDto contractDto = new ContractDto(null, "Multi-Rooms Hotel", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto1, roomDto2));
+        ContractDto contractDto = new ContractDto(null, "Multi-Rooms Hotel", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto1, roomDto2), 15.0, LocalDateTime.now());
 
         // Act
         ContractDto savedContract = contractService.addContract(contractDto);

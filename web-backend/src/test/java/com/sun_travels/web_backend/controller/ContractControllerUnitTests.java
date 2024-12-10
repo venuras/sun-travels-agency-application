@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -39,8 +40,8 @@ class ContractControllerUnitTests {
     @Test
     void testGetAllContracts() throws Exception {
         // Arrange
-        ContractDto contract1 = new ContractDto(1L, "Hotel Sunshine", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of());
-        ContractDto contract2 = new ContractDto(2L, "Hotel Paradise", LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31), List.of());
+        ContractDto contract1 = new ContractDto(1L, "Hotel Sunshine", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(), 15.0, LocalDateTime.now());
+        ContractDto contract2 = new ContractDto(2L, "Hotel Paradise", LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31), List.of(), 15.0, LocalDateTime.now());
         List<ContractDto> contracts = List.of(contract1, contract2);
 
         when(contractService.getAllContracts()).thenReturn(contracts);
@@ -59,7 +60,7 @@ class ContractControllerUnitTests {
     @Test
     void testAddContract() throws Exception {
         // Arrange
-        ContractDto contractDto = new ContractDto(1L, "Hotel Sunshine", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of());
+        ContractDto contractDto = new ContractDto(1L, "Hotel Sunshine", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(), 15.0, LocalDateTime.now());
         when(contractService.addContract(any(ContractDto.class))).thenReturn(contractDto);
 
         // Act & Assert

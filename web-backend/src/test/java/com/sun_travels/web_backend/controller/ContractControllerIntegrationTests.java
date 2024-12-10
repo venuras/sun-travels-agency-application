@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.hamcrest.Matchers.*;
@@ -45,7 +46,7 @@ class ContractControllerIntegrationTests extends TestContainersConfiguration {
     void testGetAllContracts() throws Exception {
         // Arrange: Add a contract to the database
         ContractDetailDto roomDto = new ContractDetailDto(null, "Deluxe", 250.0, 5, 2);
-        ContractDto contractDto = new ContractDto(null, "Test Hotel", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto));
+        ContractDto contractDto = new ContractDto(null, "Test Hotel", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto), 15.0, LocalDateTime.now());
         contractService.addContract(contractDto);
 
         // Act & Assert
@@ -60,7 +61,7 @@ class ContractControllerIntegrationTests extends TestContainersConfiguration {
     void testAddContract() throws Exception {
         // Arrange: Create a new ContractDto
         ContractDetailDto roomDto = new ContractDetailDto(null, "Suite", 300.0, 3, 2);
-        ContractDto contractDto = new ContractDto(null, "Luxury Inn", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto));
+        ContractDto contractDto = new ContractDto(null, "Luxury Inn", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto), 15.0, LocalDateTime.now());
         String jsonRequest = objectMapper.writeValueAsString(contractDto);
 
         // Act & Assert
@@ -76,7 +77,7 @@ class ContractControllerIntegrationTests extends TestContainersConfiguration {
     void testDeleteContract() throws Exception {
         // Arrange: Add a contract to the database
         ContractDetailDto roomDto = new ContractDetailDto(null, "Economy", 100.0, 10, 2);
-        ContractDto contractDto = new ContractDto(null, "Budget Stay", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto));
+        ContractDto contractDto = new ContractDto(null, "Budget Stay", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto), 15.0, LocalDateTime.now());
         ContractDto savedContract = contractService.addContract(contractDto);
 
         // Act & Assert
@@ -96,7 +97,7 @@ class ContractControllerIntegrationTests extends TestContainersConfiguration {
     void testAddContractWithInvalidData() throws Exception {
         // Arrange: Create an invalid ContractDto (missing hotelName)
         ContractDetailDto roomDto = new ContractDetailDto(null, "Standard", 150.0, 5, 2);
-        ContractDto invalidContractDto = new ContractDto(null, null, LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto));
+        ContractDto invalidContractDto = new ContractDto(null, null, LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(roomDto), 15.0, LocalDateTime.now());
         String jsonRequest = objectMapper.writeValueAsString(invalidContractDto);
 
         // Act & Assert

@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +36,7 @@ class ContractServiceUnitTests {
     @Test
     void testAddContract() {
         // Arrange
-        ContractDto contractDto = new ContractDto(1L, "Hotel Sunshine", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of());
+        ContractDto contractDto = new ContractDto(1L, "Hotel Sunshine", LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31), List.of(), 15.0, LocalDateTime.now());
         Contract contract = AppUtils.ContractMapper.dtoToEntity(contractDto);
         when(contractRepository.save(any(Contract.class))).thenReturn(contract);
 
