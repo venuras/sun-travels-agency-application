@@ -21,23 +21,24 @@
 
 .sidebar-btn:hover {
     transform: scale(1.02);
+    background-color: #f1f1f1
 }
 
 .sidebar-btn:hover svg {
-    fill: var(--primary-deep-color);
+    fill: var(--secondary-color);
 }
 
 .sidebar-btn.selected {
     /* background-color: #f4f4f4; */
     background: 
-    linear-gradient(to right, #f4f4f4 98%, var(--primary-deep-color) 98%);  
+    linear-gradient(to right, #f4f4f4 98%, var(--secondary-color) 98%);  
     /* transform: scale(1.05);  */
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
 .sidebar-btn.selected svg {
-    fill: var(--primary-deep-color);
+    fill: var(--secondary-color);
 }
 
 .sidebar-btn.selected:hover {
@@ -51,5 +52,5 @@
 }
 
 .sidebar-btn.selected p {
-    color: var(--primary-deep-color);
+    color: var(--secondary-color);
 }
