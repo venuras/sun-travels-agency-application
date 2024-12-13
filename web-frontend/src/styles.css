@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-    --main-bg-color: #f8fcfa;
+    /* --main-bg-color: #f8fcfa; */
+    --main-bg-color: #fff
     --main-text-color: #1B1B1D;
     --main-text-font-family: "Poppins", sans-serif;
     --primary-color: #fe8957;
     --secondary-color: #3a40a2;
+    --primary-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 body {
@@ -20,3 +22,4 @@ body {
 p {
     margin: 0;
 }
+
