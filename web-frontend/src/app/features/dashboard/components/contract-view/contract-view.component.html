@@ -16,7 +16,7 @@
     </div> -->
 
     <div class="feature-contract-view-add-contract-floating-action-btn">
-        <div class="feature-contract-view-add-contract-plus-icon">
+        <div (click)="openAddContractModal()" class="feature-contract-view-add-contract-plus-icon">
             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffffff">
                 <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
             </svg>
@@ -24,6 +24,11 @@
         <p>Add</p>
         <p>Contract</p>
     </div>
+
+    @if(isAddContractModalOpen)
+    {
+        <feature-add-contract-modal (close) = "closeAddContractModal()" (submit) = "handleAddContract($event)"></feature-add-contract-modal>
+    }
 
     <div class="feature-contract-view-table-header-container">
         @for (header of [

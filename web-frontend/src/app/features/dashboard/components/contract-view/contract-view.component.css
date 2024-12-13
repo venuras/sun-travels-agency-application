@@ -1,6 +1,7 @@
 .feature-contract-view-main-cont {
   display: flex;
   flex-direction: column;
+  padding: 10px 20px 0 20px;
 }
 
 /* .feature-contract-view-contract-status-head-container{
