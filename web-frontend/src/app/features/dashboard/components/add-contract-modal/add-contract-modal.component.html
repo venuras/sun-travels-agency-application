@@ -1,0 +1,95 @@
+<div class="feature-add-contract-modal-main-cont">
+    <div class="modal-overlay" (click)="closeModal()">
+        <div class="modal-content-container" (click)="$event.stopPropagation()">
+            <div class="modal-header-container">
+                <div></div>
+                <p>Add New Contract</p>
+                <svg (click)="closeModal()" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                    width="24px" fill="#e8eaed">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg>
+            </div>
+            <form class="add-contract-from" [formGroup]="contractForm" (ngSubmit)="handleSubmit()">
+                <div class="contract-details-container">
+                    <p>Contract Details</p>
+                    <div class="add-contract-form-fields-cont">
+                        <div class="add-contract-form-field">
+                            <label for="hotelName">Hotel Name</label>
+                            <input id="hotelName" type="text" formControlName="hotelName" />
+
+                        </div>
+                        <div class="add-contract-form-field">
+                            <label for="markup">Markup Rate</label>
+                            <input id="markup" type="number" formControlName="markup" />
+                        </div>
+                    </div>
+
+                    <div class="add-contract-form-fields-cont">
+
+                        <div class="add-contract-form-field">
+                            <label for="contractValidFrom">Contract Starting Date</label>
+                            <input id="contractValidFrom" type="date" formControlName="contractValidFrom"
+                                [min]="minDate" />
+                        </div>
+
+                        <div class="add-contract-form-field">
+                            <label for="contractValidTill">Contract Ending Date</label>
+                            <input id="contractValidTill" type="date" formControlName="contractValidTill" />
+                        </div>
+                    </div>
+                </div>
+                @for(contractDetailFormMap of contractDetailsForms; track contractDetailFormMap.index){
+                <form [formGroup]="contractDetailFormMap.formGroup">
+                    <div class="add-contract-room-type-form-container">
+                        <p>Details for Room Type {{$index + 1}}</p>
+                        <div class="add-contract-room-type-form-fields">
+                            <div class="add-contract-room-type-form-field">
+                                <label for="roomType">Name</label>
+                                <input id="roomType" type="text" formControlName="roomType" />
+
+                            </div>
+                            <div class="add-contract-room-type-form-field">
+                                <label for="roomPrice">Price</label>
+                                <input id="roomPrice" type="number" formControlName="roomPrice" />
+                            </div>
+                        </div>
+                        <div class="add-contract-room-type-form-fields">
+                            <div class="add-contract-room-type-form-field">
+                                <label for="roomCount">Count</label>
+                                <input id="roomCount" type="text" formControlName="roomCount" />
+
+                            </div>
+                            <div class="add-contract-room-type-form-field">
+                                <label for="maxAdultCount">Max. Adult Count</label>
+                                <input id="maxAdultCount" type="number" formControlName="maxAdultCount" />
+                            </div>
+                        </div>
+                        @if(contractDetailFormMap.index != 0)
+                        {
+                        <div style="display: flex; justify-content: flex-end; margin: 0 10px;">
+                            <div (click)="removeRoomType(contractDetailFormMap.index)"
+                                style="background-color: #c41a1a; color:white; padding: 5px; display:flex; justify-content: center; width:180px">
+                                Remove Room Type</div>
+                        </div>
+                        }
+                    </div>
+                </form>
+                }
+
+                <div class="add-room-type-btn-container" (click)="addContractDetail()">
+                    <div class="add-room-type-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#ffffff">
+                            <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                        </svg>
+                        <p class="add-room-type-btn-text">Add Room Type</p>
+                    </div>
+                </div>
+                <div class="add-contract-submit-button-container">
+                    <button class="add-contract-submit-button" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
