@@ -1,3 +1,154 @@
-<div>
-    <h2>Search Here</h2>
+<div class="feature-search-view-main-container">
+    <div class="search-results-container">
+
+        <p class="feature-search-view-head-text">Search Customer Requests</p>
+        @for(result of searchResults; track $index)
+        {
+        <div class="search-result-main-container">
+            <p class="search-result-hotel-name">{{result.hotelName}}</p>
+
+            @for (criteria of result.availableRoomTypesForCriterion; track $index) {
+            <div class="availble-data-container">
+                <div style="display: flex;">
+                    <div class="criteria-container">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px"
+                            fill="#000">
+                            <path
+                                d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                        </svg>
+
+                        <p class="critieria-cont-title-text">Requirement</p>
+                        <!-- <p class="criteria-text">{{criteria.criteria.roomCount}} room/s with {{criteria.criteria.adultCount}} adult/s</p> -->
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 5px;" class="available-room-type-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px"
+                            fill="#000">
+                            <path
+                                d="M80-160v-160h160v160H80Zm240 0v-160h560v160H320ZM80-400v-160h160v160H80Zm240 0v-160h560v160H320ZM80-640v-160h160v160H80Zm240 0v-160h560v160H320Z" />
+                        </svg>
+                        <p class="available-room-type-title-text">Room Types & Prices</p>
+                    </div>
+                </div>
+
+                <div style="display: flex;">
+                    <div class="criteria-data-container">
+                        <!-- <p class="critieria-cont-title-text">Requirement</p> -->
+                        <div style="display: flex; gap: 5px; align-items: center; margin-left: 20px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px"
+                                fill="#000">
+                                <path
+                                    d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
+                            <p class="criteria-text">{{criteria.criteria.roomCount}} room/s with
+                                {{criteria.criteria.adultCount}} adult/s</p>
+                        </div>
+                    </div>
+                    <div class="available-room-type-container">
+                        <div style="margin-left: 20px; display: flex; flex-direction: column;">
+                            @for (available of criteria.available; track $index) {
+                            <div style="display: flex; gap: 5px; align-items: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960"
+                                    width="16px" fill="#000">
+                                    <path
+                                        d="M200-200h-40l-26-80H80v-201q0-33 23.5-56t56.5-23v-120q0-33 23.5-56.5T240-760h480q33 0 56.5 23.5T800-680v120q33 0 56.5 23.5T880-480v200h-54l-26 80h-40l-26-80H226l-26 80Zm320-360h200v-120H520v120Zm-280 0h200v-120H240v120Zm-80 200h640v-120H160v120Zm640 0H160h640Z" />
+                                </svg>
+                                <p style="font-weight: 500;">{{available.roomType}}</p>
+                                <p style="font-style: italic;">for</p>
+                                <p style="font-weight: 500;">Rs. {{available.markedUpPrice}} /=</p>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        }
+
+    </div>
+    <div class="search-criteria-container">
+        <p style="font-size: 1.5rem; font-weight: 500;">Fill Customer Requirements</p>
+        <form (ngSubmit)="handleSubmit()" [formGroup]="checkInDateAndNoOfNightsFormGroup">
+            <div class="checkin-details-container">
+                <p class="customer-check-in-details-text">
+                    Check In Details
+                </p>
+                <div class="checkin-details-container-internal">
+                    <div class="search-input-form-field">
+                        <label for="checkInDate">Check In Date:</label>
+                        <input type="date" id="checkInDate" name="checkInDate" formControlName="checkInDate"
+                            [min]="today" />
+                    </div>
+                    <div class="search-input-form-field">
+                        <label for="noOfNights">Number of Nights:</label>
+                        <input type="number" id="noOfNights" name="noOfNights" min="1" formControlName="noOfNights" />
+                    </div>
+                </div>
+            </div>
+            <div class="room-count-and-adult-count-combination-container">
+                <p style="font-weight: 500; font-size: 1.2rem;">
+                    Room Count & Adult Count Details
+                </p>
+                <div class="room-count-adult-count-combination-container-internal">
+                    @for (combinationFormGroupMap of roomCountAndAdultCountCombinationsFormGroups; track $index) {
+                    <form [formGroup]="combinationFormGroupMap.formGroup">
+
+                        <div class="room-count-and-adult-count-input-fields-container">
+                            <div class="search-input-form-field">
+                                <label for="roomCount">Room Count:</label>
+                                <input type="number" id="roomCount" name="roomCount" min="1"
+                                    formControlName="roomCount" />
+                            </div>
+                            <div class="search-input-form-field">
+                                <label for="adultCount">Adult Count:</label>
+                                <input type="number" id="adultCount" name="adultCount" min="1"
+                                    formControlName="adultCount" />
+                            </div>
+                            @if(combinationFormGroupMap.index !== 0)
+                            {
+                            <!-- <button (click)="removeCombination(combinationFormGroupMap.index)"
+                                class="remove-combination-button">Remove Combination</button>
+                            } -->
+                            <div style="display: flex; align-items: flex-end;">
+                                <div (click)="removeCombination(combinationFormGroupMap.index)"
+                                    class="remove-combination-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            }
+                        </div>
+
+                    </form>
+                    }
+                    <div (click)="addCombination()" class="add-combination-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#ffffff">
+                            <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+                        </svg>
+                        <p class="add-combination-btn-text">Add Combination</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="search-btn-container">
+                <button class="search-hotels-submit-button" type="submit">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px"
+                            fill="#e8eaed">
+                            <path
+                                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                        </svg>
+                        <p>Search</p>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
 </div>

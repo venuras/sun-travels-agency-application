@@ -1,0 +1,276 @@
+.feature-search-view-main-container {
+    /* display: flex;
+    flex-direction: column; */
+    /* display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr; */
+    display: flex;
+    height: calc(100vh - 120px);
+}
+
+.search-results-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-right: solid rgba(0, 0, 0, 0.4) 2px;
+    padding: 10px 20px 10px 20px;
+}
+
+.search-criteria-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px 10px 20px;
+    overflow-y: visible;
+}
+
+.internal-cont {
+    flex: 1;
+}
+
+.checkin-details-container,
+.room-count-and-adult-count-combination-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: var(--primary-box-shadow);
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #FFFFFF;
+}
+
+.checkin-details-container-internal,
+.room-count-adult-count-combination-container-internal {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.customer-check-in-details-text {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.feature-search-view-head-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.search-input-form-field {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.search-input-form-field input {
+    /* width: 100%; */
+    /* max-width: 220px; */
+    /* height: 45px; */
+    padding: 15px;
+    border-radius: 12px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+    font-family: "Poppins";
+}
+
+.search-input-form-field input:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+}
+
+.search-input-form-field input:active {
+    transform: scale(0.95);
+}
+
+.search-input-form-field input:focus {
+    border: 2px solid grey;
+}
+
+.room-count-and-adult-count-input-fields-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.add-combination-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    /* Dark background */
+    border: 2px solid #e8eaed;
+    /* Subtle border */
+    border-radius: 8px;
+    /* Rounded corners */
+    cursor: pointer;
+    width: 180px;
+}
+
+.add-combination-btn-text {
+    color: white;
+    font-weight: 500;
+}
+
+.remove-combination-button {
+    background-color: #E53935;
+    /* Muted red (Material Design red 600) */
+    color: #FFFFFF;
+    /* White text */
+    border: none;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded corners */
+    padding: 10px 20px;
+    /* Padding for size */
+    font-size: 16px;
+    /* Text size */
+    font-weight: bold;
+    /* Bold text */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition effect */
+}
+
+.remove-combination-button:hover {
+    background-color: #D32F2F;
+    /* Darker muted red on hover */
+}
+
+.search-hotels-submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    /* Dark background */
+    border: 2px solid #e8eaed;
+    /* Subtle border */
+    border-radius: 8px;
+    /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    /* Smooth transitions */
+}
+
+.search-hotels-submit-button div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between icon and text */
+}
+
+.search-hotels-submit-button svg {
+    fill: #e8eaed;
+    /* Icon color */
+    transition: transform 0.2s;
+    /* Smooth hover effect */
+}
+
+.search-hotels-submit-button p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e8eaed;
+    /* Text color */
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+}
+
+/* Hover Effects */
+.search-hotels-submit-button:hover {
+    background-color: #0052D4;
+    /* Slightly lighter background */
+    box-shadow: var(--primary-box-shadow);
+    /* Elevation effect */
+    transform: translateY(-2px);
+    /* Subtle lift effect */
+}
+
+.search-hotels-submit-button:hover svg {
+    transform: scale(1.1);
+    /* Slightly larger icon on hover */
+}
+
+/* Focus Styles */
+.search-hotels-submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #e8eaed;
+    /* Focus ring */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .seacrh-hotels-submit-button p {
+        font-size: 14px;
+        /* Smaller text */
+    }
+
+    .search-hotels-submit-button {
+        padding: 8px 16px;
+        /* Adjust padding */
+    }
+}
+
+.search-btn-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.remove-combination-btn {
+    height: 50px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    padding: 0 10px;
+    background-color: #c41a1a; /* Red background */
+    border-radius: 6px; /* Rounded corners */
+    color: #e8eaed; /* Text and icon color */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transitions */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.remove-combination-btn svg {
+    fill: #e8eaed; /* Icon color */
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+/* Hover Effects */
+.remove-combination-btn:hover {
+    background-color: #a31515; /* Darker red on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Elevation effect */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.remove-combination-btn:hover svg {
+    transform: scale(1.1); /* Slightly larger icon on hover */
+}
+
+/* Active Effect */
+.remove-combination-btn:active {
+    transform: translateY(0); /* Reset lift effect */
+    box-shadow: none; /* Remove shadow on click */
+}
+
+/* Focus Styles */
+.remove-combination-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5); /* Focus ring for accessibility */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .remove-combination-btn {
+        padding: 8px 16px; /* Adjust padding */
+        font-size: 14px; /* Smaller text */
+    }
+}

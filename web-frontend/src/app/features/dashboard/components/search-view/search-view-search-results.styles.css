@@ -1,0 +1,57 @@
+.search-result-main-container{
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 20px;
+    box-shadow: var(--primary-box-shadow);
+}
+
+.search-result-hotel-name{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.availble-data-container{
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: var(--primary-box-shadow);
+    margin-bottom: 10px;
+}
+
+.criteria-container
+{
+    flex: 1;
+    border-right: solid rgba(0, 0, 0, 0.4) 2px;
+    display: flex;
+    align-items: center; 
+    gap: 5px;
+}
+
+.critieria-cont-title-text{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.criteria-text{
+    /* margin-left: 20px; */
+    font-weight: 400;
+}
+
+.criteria-data-container{
+    flex: 1;
+    border-right: solid rgba(0, 0, 0, 0.4) 2px;
+    display: flex;
+    align-items: flex-start; 
+    gap: 5px;
+}
+
+.available-room-type-container{
+    flex: 1;
+    margin-left: 10px;
+}
+
+.available-room-type-title-text{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
