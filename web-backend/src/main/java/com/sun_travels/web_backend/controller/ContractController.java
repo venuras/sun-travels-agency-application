@@ -2,6 +2,8 @@ package com.sun_travels.web_backend.controller;
 
 import com.sun_travels.web_backend.dto.ContractDto;
 import com.sun_travels.web_backend.dto.request_body.DeleteContractRequestBody;
+import com.sun_travels.web_backend.dto.request_body.GetAvailableHotelsRequestBody;
+import com.sun_travels.web_backend.dto.response_body.AvailableHotelDto;
 import com.sun_travels.web_backend.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,5 +41,11 @@ public class ContractController {
     {
         contractService.deleteContract(reqBody.getContractId());
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/available")
+    public ResponseEntity<List<AvailableHotelDto>> getAvailableHotels(@RequestBody GetAvailableHotelsRequestBody reqBody)
+    {
+        return new ResponseEntity<>(contractService.getAvailableHotels(reqBody), HttpStatus.OK);
     }
 }
